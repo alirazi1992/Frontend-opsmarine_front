@@ -1,59 +1,109 @@
 # OpsMarine Frontend
 
-A modern frontend for the OpsMarine application — leveraging Tailwind CSS and a component-based architecture to build a responsive, clean, and efficient user interface for marine operations.
+A lightweight, fast frontend for the OpsMarine application. It ships with a clean HTML/JS structure, Tailwind CSS for styling, and a simple mock API (`db.json`) for quick prototyping and UI development. 
+
+---
+## ✨ Highlights
+
+- **Tailwind CSS** for rapid, consistent styling.
+  
+- **Simple, component-friendly structure** under `src/`.
+
+- **Mock API via** `db.json`—perfect for local development without a live backend. 
+
+- **Plain HTML entry** (`index.html`)—works with any static server.
 
 ---
 
-##  Overview
+## 📁 Project Structure
 
-OpsMarine is designed for managing marine operations with ease and clarity. This frontend version allows you to:
-- Navigate marine operation data cleanly using a responsive UI  
-- Simulate or visualize data using the included `db.json` (ideal for prototyping or offline development)  
-- Easily expand as the backend grows or integrates with APIs
+Frontend-opsmarine_front/
 
----
+├─ public/                 # Static assets
 
-##  Features
+├─ src/                    # App source (components, routes, utilities)
 
-- **Tailwind CSS**: Lightweight and highly customizable styling  
-- **Component Structure**: Easily maintainable and scalable structure under `src/`  
-- **Mock Data Support**: `db.json` can be used with tools like `json-server` to mock APIs and speed up development  
-- **Dev-Friendly**: Built for fast local development and rapid iteration
+│  └─ routes/              # Page/view modules and client-side routing glue
 
----
+├─ db.json                 # Mock API data (use with json-server)
 
-##  Getting Started
+├─ index.html              # App entry
 
-### Prerequisites
+├─ tailwind.config.js      # Tailwind configuration
 
-- [Node.js](https://nodejs.org) (v14+ recommended)  
-- [npm](https://npmjs.com) (or Yarn)
-----
+├─ postcss.config.js       # PostCSS configuration
 
-### Project Structure
+├─ package.json            # Scripts & dependencies
 
-opsmarine-/
-
-├── src/                 # Source files (components, assets, etc.)
-
-├── index.html           # Entry point
-
-├── package.json         # Project metadata and dependencies
-
-├── tailwind.config.js   # Tailwind CSS configuration
-
-├── db.json              # Mock data for development
+└─ README.md
 
 ----
 
-## 🤝 Contributing 
+## 🧭 Routing
 
-Feel free to fork the repo and submit PRs or raise issues for any suggastions.
+This project keeps page/views under `src/routes/`. A typical pattern is:
 
+- Each **route module** handles rendering for a page/section.
 
-## 📬  Contact
-For questions or collaboration opportunities:
+- A tiny **client-side router** (hash-based or path-based) decides which module to mount.
 
-**📧 Email:** ali.razi9292@gmail.com
+- Shared UI (headers, sidebars) live in `src/` as reusable pieces.
 
-**🔗 LinkedIn:** linkedin.com/in/alirazi1992
+---
+
+## 🧩 Styling
+
+Tailwind CSS is preconfigured (see `tailwind.config.js` and `postcss.config.js`).
+Use utility classes directly in HTML/JS templates for rapid iteration.
+
+---
+
+## 🔌 Environment & Config
+
+- **API base URL**: Point your fetch calls to the mock server (e.g., `http://localhost:7001`) during development.
+
+- **Production**: Swap to your real backend URL or a proxy as needed.
+
+  ----
+
+## 🧪 Tips
+
+- Keep UI chunks small and composable inside `src/`.
+
+- Co-locate small styles or templates with the feature that uses them.
+
+- For larger pages, split logic into helpers (e.g., `src/utils/`) to keep `routes/` clean.
+
+  ----
+
+## 🛠️ Scripts (examples)
+
+Check `package.json` for the exact script names in your repo; if you prefer a dev server workflow, add:
+```bash
+{
+  "scripts": {
+    "dev": "serve .",
+    "api": "json-server --watch db.json --port 7001",
+    "build": "echo \"No build step needed for plain HTML/JS\""
+  }
+}
+```
+----
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+
+- Open an Issue for bugs/enhancements.
+
+- Keep PRs focused and include a short description or screenshots for UI changes.
+
+----
+## 📬 Contact
+
+- **Author**: Ali Razi
+
+- **Email**: ali.razi9292@gmail.com
+
+- **LinkedIn**: linkedin.com/in/alirazi1992
+
